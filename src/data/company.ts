@@ -32,6 +32,15 @@ export const company = {
   replyTime: '{{2 часов}}',
   /* TODO: заменить на реальные данные */
   slotsPerMonth: '{{5}}',
+  /* TODO: заменить на реальные данные — и держать в актуальном состоянии.
+     Фальшивый дефицит бьёт по доверию сильнее, чем помогает конверсии. */
+  slotsFree: '{{2}}',
+  /* TODO: заменить на реальные данные */
+  slotsMonth: '{{августе}}',
+  /* TODO: заменить на реальные данные */
+  callbackTime: '{{10 минут}}',
+  /* TODO: подставить ссылку на PDF с чек-листом */
+  checklistUrl: '#checklist-pdf',
 } as const
 
 /* Факты в первом экране. TODO: заменить на реальные данные */
@@ -44,8 +53,8 @@ export const heroFacts = [
 
 export const navLinks = [
   { href: '#start', label: 'Бесплатный старт' },
-  { href: '#honest', label: 'В чём подвох' },
-  { href: '#services', label: 'Услуги' },
+  { href: '#quiz', label: 'Подбор' },
   { href: '#cases', label: 'Кейсы' },
+  { href: '#reviews', label: 'Отзывы' },
   { href: '#faq', label: 'Вопросы' },
 ] as const

@@ -1,0 +1,58 @@
+.reviews__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-5);
+}
+
+.reviews__card {
+  display: grid;
+  align-content: start;
+  gap: var(--s-3);
+  padding: var(--s-4);
+  border: var(--border);
+  border-radius: var(--radius);
+}
+
+.reviews__quote {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.reviews__author {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding-top: var(--s-3);
+  border-top: 1px solid var(--c-line);
+}
+
+.reviews__avatar {
+  flex: none;
+  inline-size: var(--s-5);
+  block-size: var(--s-5);
+  border-radius: var(--radius-pill);
+  background: var(--c-grey-light);
+}
+
+.reviews__who { display: grid; }
+
+.reviews__name { font-weight: 500; }
+
+.reviews__role { color: var(--c-black); }
+
+.reviews__source { color: var(--c-grey); }
+
+.reviews__note {
+  margin-top: var(--s-4);
+  color: var(--c-black);
+}
+
+@media (max-width: 1023px) {
+  .reviews__grid { grid-template-columns: repeat(2, 1fr); gap: var(--s-3); }
+  .reviews__card { padding: var(--s-3); }
+}
+
+@media (max-width: 767px) {
+  .reviews__grid { grid-template-columns: 1fr; }
+}

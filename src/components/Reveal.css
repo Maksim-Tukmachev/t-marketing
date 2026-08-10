@@ -1,16 +1,19 @@
-.reveal {
+/* Скрываем только то, что JS успел «взвести» (is-armed).
+   Без скрипта и до гидрации блок виден — это осознанный дефолт. */
+
+.reveal.is-armed {
   opacity: 0;
   transform: translateY(16px);
   transition: opacity .5s ease, transform .5s ease;
 }
 
-.reveal.is-shown {
+.reveal.is-armed.is-shown {
   opacity: 1;
   transform: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal {
+  .reveal.is-armed {
     opacity: 1;
     transform: none;
     transition: none;

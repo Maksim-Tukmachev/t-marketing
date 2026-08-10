@@ -1,0 +1,117 @@
+/* Плавающий виджет связи. Теней в системе нет — панель отделяется линией. */
+
+.widget {
+  position: fixed;
+  right: var(--s-3);
+  bottom: var(--s-3);
+  z-index: 12;
+  display: grid;
+  justify-items: end;
+  gap: var(--s-2);
+}
+
+/* Рядом с финальной формой кнопку убираем совсем */
+.widget--muted { display: none; }
+
+.widget__toggle {
+  background: var(--c-black);
+  border-color: var(--c-black);
+  color: var(--c-white);
+}
+
+.widget__toggle:hover {
+  background: var(--c-line-dark);
+  border-color: var(--c-line-dark);
+  color: var(--c-white);
+}
+
+/* --- Панель ------------------------------------------------- */
+
+.widget__panel {
+  inline-size: 320px;
+  max-inline-size: calc(100vw - var(--s-5));
+  max-block-size: calc(100svh - var(--s-9));
+  overflow-y: auto;
+  background: var(--c-white);
+  border: var(--border);
+  border-radius: var(--radius);
+  padding: var(--s-3);
+  display: grid;
+  gap: var(--s-3);
+}
+
+.widget__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-2);
+}
+
+.widget__title { color: var(--c-grey); }
+
+.widget__close {
+  background: none;
+  border: 0;
+  padding: 0;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  transition: color var(--t-fast);
+}
+
+.widget__close:hover { color: var(--c-grey); }
+
+/* --- Каналы -------------------------------------------------- */
+
+.widget__channels {
+  display: grid;
+  border-top: 1px solid var(--c-line);
+}
+
+.widget__channel {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-2);
+  padding-block: var(--s-2);
+  border-bottom: 1px solid var(--c-line);
+  font-size: 15px;
+  transition: color var(--t-fast);
+}
+
+.widget__channel:hover { color: var(--c-grey); }
+
+.widget__channel-note { color: var(--c-black); }
+
+.widget__channel:hover .widget__channel-note { color: var(--c-grey); }
+
+/* --- Обратный звонок ----------------------------------------- */
+
+.widget__form { display: grid; gap: var(--s-2); }
+
+.widget__form-title { font-weight: 500; }
+
+.widget__note { color: var(--c-black); }
+
+.widget__done { font-size: 15px; }
+
+@media (max-width: 767px) {
+  .widget {
+    right: var(--s-2);
+    /* Выше липкой панели заявки, чтобы кнопки не наезжали друг на друга */
+    bottom: calc(var(--s-8) - var(--s-2));
+  }
+
+  .widget__panel {
+    position: fixed;
+    inset: auto var(--s-2) var(--s-2) var(--s-2);
+    inline-size: auto;
+    max-inline-size: none;
+    max-block-size: 80svh;
+  }
+
+  /* Открытая панель занимает низ экрана целиком: кнопку сворачивания
+     заменяет крестик внутри панели, липкая панель заявки уезжает */
+  body[data-widget-open] .widget__toggle { display: none; }
+  body[data-widget-open] .sticky-cta { display: none; }
+}

@@ -3,7 +3,9 @@
 import { useState } from 'react'
 import type { FormEvent, ReactNode } from 'react'
 import { Button } from './Button'
+import { FormNote } from './FormNote'
 import { company } from '../data/company'
+import { track } from '../lib/analytics'
 import { CONSENT_ERROR, PHONE_ERROR, formatPhone, isPhoneComplete } from '../lib/phone'
 import './QuickForm.css'
 
@@ -46,6 +48,7 @@ export function QuickForm({
     if (nextPhone || nextAgree) return
 
     console.log('Заявка', { source, phone, agree })
+    track('form_submit', { form: source })
     setSent(true)
   }
 
@@ -82,7 +85,10 @@ export function QuickForm({
             aria-describedby={phoneError ? `${id}-phone-error` : undefined}
             onChange={(event) => setPhone(formatPhone(event.target.value))}
             onFocus={() => {
-              if (phone === '') setPhone('+7')
+              if (phone === '') {
+                setPhone('+7')
+                track('form_start', { form: source })
+              }
             }}
           />
         </div>
@@ -120,6 +126,7 @@ export function QuickForm({
           {agreeError}
         </p>
       ) : null}
+      <FormNote />
     </form>
   )
 }

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { Button } from './Button'
+import { track } from '../lib/analytics'
 import './StickyCta.css'
 
 /**
@@ -40,7 +41,13 @@ export function StickyCta() {
     <div className={visible ? 'sticky-cta is-visible' : 'sticky-cta'} aria-hidden={!visible}>
       <div className="sticky-cta__inner">
         <span className="label sticky-cta__text">Прототип и первый месяц — бесплатно</span>
-        <Button as="a" variant="accent" href="#cta" tabIndex={visible ? undefined : -1}>
+        <Button
+          as="a"
+          variant="accent"
+          href="#cta"
+          tabIndex={visible ? undefined : -1}
+          onClick={() => track('cta_click', { place: 'sticky' })}
+        >
           Оставить заявку
         </Button>
       </div>

@@ -1,0 +1,31 @@
+.form-note {
+  display: grid;
+  gap: var(--s-2);
+}
+
+.form-note__facts,
+.form-note__steps {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--s-2);
+  color: var(--c-grey);
+}
+
+.form-note__facts li,
+.form-note__steps li {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-2);
+}
+
+.form-note__facts li + li::before,
+.form-note__steps li + li::before {
+  content: '·';
+}
+
+/* На светлом фоне серый на белом не проходит по контрасту */
+.form-note--light .form-note__facts,
+.form-note--light .form-note__steps {
+  color: var(--c-black);
+}

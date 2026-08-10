@@ -1,0 +1,65 @@
+/* Модалка по design.mdc §5.8: белый лист, прямые углы, без тени,
+   подложка rgba(0,0,0,.5), ширина ~720px, поля 40px. */
+
+.exit {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: var(--s-3);
+  background: rgb(0 0 0 / .5);
+}
+
+.exit__sheet {
+  position: relative;
+  inline-size: 720px;
+  max-inline-size: 100%;
+  max-block-size: calc(100svh - var(--s-6));
+  overflow-y: auto;
+  background: var(--c-white);
+  border-radius: var(--radius);
+  padding: var(--s-5);
+}
+
+/* Фокус переводим на лист программно, чтобы озвучил скринридер.
+   Рамка фокуса нужна на управляющих элементах, а не на самом листе. */
+.exit__sheet:focus { outline: none; }
+
+.exit__close {
+  position: absolute;
+  top: var(--s-3);
+  right: var(--s-3);
+  background: none;
+  border: 0;
+  padding: 0;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  transition: color var(--t-fast);
+}
+
+.exit__close:hover { color: var(--c-grey); }
+
+.exit__body { display: grid; gap: var(--s-3); }
+
+.exit__kicker { color: var(--c-grey); }
+
+.exit__text { max-width: 34em; }
+
+.exit__form { display: grid; gap: var(--s-2); }
+
+.exit__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: var(--s-2);
+}
+
+.exit__note { color: var(--c-black); }
+
+@media (max-width: 767px) {
+  .exit__sheet { padding: var(--s-3); }
+  .exit__row { grid-template-columns: 1fr; }
+  .exit__row .btn { width: 100%; border-radius: var(--radius); }
+}

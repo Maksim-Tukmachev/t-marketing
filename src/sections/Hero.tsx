@@ -5,6 +5,7 @@ import { Button } from '../components/Button'
 import { Ferrofluid } from '../components/Ferrofluid'
 import { Media } from '../components/Media'
 import { heroFacts } from '../data/company'
+import { track } from '../lib/analytics'
 import './Hero.css'
 
 const ferroColors = ['#ffffff', '#d4d4d4', '#9e9e9e'] as const
@@ -60,11 +61,24 @@ export function Hero() {
             </p>
 
             <div className="hero__actions">
-              <Button as="a" variant="accent" fullOnMobile href="#cta">
+              <Button
+                as="a"
+                variant="accent"
+                fullOnMobile
+                href="#cta"
+                onClick={() => track('cta_click', { place: 'hero', label: 'prototype' })}
+              >
                 Получить прототип бесплатно
               </Button>
-              <Button as="a" variant="pill" onDark fullOnMobile href="#cases">
-                Смотреть кейсы
+              <Button
+                as="a"
+                variant="pill"
+                onDark
+                fullOnMobile
+                href="#quiz"
+                onClick={() => track('cta_click', { place: 'hero', label: 'quiz' })}
+              >
+                Подобрать решение за 2 минуты
               </Button>
             </div>
           </div>

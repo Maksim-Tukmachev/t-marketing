@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { Button } from '../components/Button'
 import { navLinks } from '../data/company'
+import { track } from '../lib/analytics'
 import './Header.css'
 
 export function Header() {
@@ -45,7 +46,14 @@ export function Header() {
         </nav>
 
         <div className="header__actions">
-          <Button as="a" variant="rect" onDark href="#cta" className="header__cta">
+          <Button
+            as="a"
+            variant="rect"
+            onDark
+            href="#cta"
+            className="header__cta"
+            onClick={() => track('cta_click', { place: 'header' })}
+          >
             Получить прототип
           </Button>
 

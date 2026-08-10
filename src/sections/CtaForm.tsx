@@ -4,7 +4,9 @@ import { useState } from 'react'
 import type { FormEvent } from 'react'
 import { Button } from '../components/Button'
 import { Field } from '../components/Field'
+import { FormNote } from '../components/FormNote'
 import { company } from '../data/company'
+import { track } from '../lib/analytics'
 import { CONSENT_ERROR, PHONE_ERROR, formatPhone, isPhoneComplete } from '../lib/phone'
 import './CtaForm.css'
 
@@ -39,16 +41,23 @@ export function CtaForm() {
       site: site.trim(),
       agree,
     })
+    track('form_submit', { form: 'final' })
     setSent(true)
   }
 
   return (
     <section className="section section--dark cta" id="cta">
       <div className="container cta__inner">
-        <h2 className="display cta__title">
-          <span>Заберите</span>
-          <span>прототип</span>
-        </h2>
+        <div className="cta__copy">
+          <p className="label cta__slots">
+            {/* TODO: заменить на реальные данные и держать в актуальном состоянии */}
+            Свободно {company.slotsFree} места в {company.slotsMonth}
+          </p>
+          <h2 className="h1 cta__title">
+            <span>Заберите</span>
+            <span>прототип</span>
+          </h2>
+        </div>
 
         <div className="cta__side">
           {sent ? (
@@ -129,10 +138,7 @@ export function CtaForm() {
                 Отправить заявку
               </Button>
 
-              {/* TODO: заменить на реальные данные */}
-              <p className="caption cta__reply">
-                Ответим в течение {company.replyTime} в рабочее время.
-              </p>
+              <FormNote />
             </form>
           )}
         </div>

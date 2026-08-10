@@ -1,12 +1,17 @@
 import { CtaBanner } from '@/components/CtaBanner'
+import { ExitIntent } from '@/components/ExitIntent'
+import { FloatingWidget } from '@/components/FloatingWidget'
 import { StickyCta } from '@/components/StickyCta'
 import { Header } from '@/sections/Header'
 import { Hero } from '@/sections/Hero'
 import { FreeStart } from '@/sections/FreeStart'
+import { Quiz } from '@/sections/Quiz'
 import { Honest } from '@/sections/Honest'
 import { Services } from '@/sections/Services'
 import { Process } from '@/sections/Process'
+import { Guarantees } from '@/sections/Guarantees'
 import { Cases } from '@/sections/Cases'
+import { Reviews } from '@/sections/Reviews'
 import { Clients } from '@/sections/Clients'
 import { Team } from '@/sections/Team'
 import { Faq } from '@/sections/Faq'
@@ -22,17 +27,26 @@ export default function HomePage() {
         <Hero />
         <FreeStart />
 
-        {/* Лид-магнит: забирает тех, кто ещё не готов на созвон */}
+        {/* Интерактив на месте первого сомнения: человек уже понял оффер,
+            но ещё не готов звонить */}
+        <Quiz />
+
+        <Honest />
+        <Services />
+        <Process />
+        <Guarantees />
+
+        {/* Лид-магнит: забирает тех, кому рано на созвон */}
         <CtaBanner
           id="checklist"
           kicker="Бесплатно, без созвона"
           title="Чек-лист: где утекает рекламный бюджет"
-          text="12 точек, которые сливают деньги в Директе и VK Рекламе. Проверьте свой кабинет за 15 минут."
+          text="12 точек, которые сливают деньги в Директе и VK Рекламе. Проверьте свой кабинет за 15 минут."
           buttonLabel="Забрать чек-лист"
           successTitle="Чек-лист отправили"
           successText={
             <>
-              Ссылка ушла в SMS. Если не дошла — напишите в{' '}
+              Ссылка ушла в SMS. Если не дошла — напишите в{' '}
               {/* TODO: заменить на реальные данные */}
               <a href={company.telegramHref} rel="noopener noreferrer" target="_blank">
                 Telegram {company.telegram}
@@ -42,29 +56,18 @@ export default function HomePage() {
           }
         />
 
-        <Honest />
-        <Services />
-        <Process />
-
-        {/* Второй удар: расчёт бюджета — низкий порог входа */}
-        <CtaBanner
-          id="calc"
-          kicker="20 минут"
-          title="Посчитаем бюджет и прогноз заявок"
-          text="Оставьте номер. Перезвоним, зададим пять вопросов и назовём вилку по бюджету в вашей нише."
-          buttonLabel="Получить расчёт"
-          successTitle="Приняли"
-          successText={`Перезвоним в течение ${company.replyTime} в рабочее время.`}
-        />
-
         <Cases />
+        <Reviews />
         <Clients />
         <Team />
         <Faq />
         <CtaForm />
       </main>
       <Footer />
+
       <StickyCta />
+      <FloatingWidget />
+      <ExitIntent />
     </>
   )
 }

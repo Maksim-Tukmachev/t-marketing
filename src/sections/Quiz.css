@@ -1,0 +1,128 @@
+/* Квиз. Панель с рамкой 1px, прямые углы, выбранный вариант заливается
+   чёрным — зелёный в этом блоке остаётся только на кнопке отправки. */
+
+.quiz__panel {
+  border: var(--border);
+  border-radius: var(--radius);
+  padding: var(--s-5);
+}
+
+@media (max-width: 767px) {
+  .quiz__panel { padding: var(--s-3); }
+}
+
+/* --- Прогресс ---------------------------------------------- */
+
+.quiz__progress {
+  display: grid;
+  gap: var(--s-2);
+  margin-bottom: var(--s-5);
+}
+
+.quiz__bar {
+  display: block;
+  block-size: 2px;
+  background: var(--c-line);
+}
+
+.quiz__bar-fill {
+  display: block;
+  block-size: 100%;
+  background: var(--c-black);
+  transition: inline-size var(--t-fast);
+}
+
+/* --- Шаг ---------------------------------------------------- */
+
+.quiz__step,
+.quiz__contact {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  gap: var(--s-5);
+  align-items: start;
+}
+
+.quiz__q { display: grid; gap: var(--s-2); }
+
+.quiz__hint { color: var(--c-black); font-size: 15px; }
+
+.quiz__options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s-2);
+}
+
+.quiz__option {
+  border: var(--border);
+  border-radius: var(--radius);
+  background: none;
+  text-align: left;
+  padding: var(--s-3);
+  font-size: 15px;
+  cursor: pointer;
+  transition: color var(--t-fast), border-color var(--t-fast),
+    background-color var(--t-fast);
+}
+
+.quiz__option:hover {
+  color: var(--c-grey);
+  border-color: var(--c-grey);
+}
+
+.quiz__option[aria-pressed='true'] {
+  background: var(--c-black);
+  border-color: var(--c-black);
+  color: var(--c-white);
+}
+
+/* --- Контактный шаг ----------------------------------------- */
+
+.quiz__contact-body { display: grid; gap: var(--s-3); }
+
+.quiz__field { display: grid; }
+
+.quiz__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  margin-top: var(--s-2);
+}
+
+/* --- Результат ---------------------------------------------- */
+
+.quiz__done { display: grid; gap: var(--s-3); }
+
+.quiz__kicker { color: var(--c-grey); }
+
+.quiz__outcome { max-width: 34em; }
+
+.quiz__summary {
+  display: grid;
+  gap: var(--s-2);
+  margin: 0;
+  padding-top: var(--s-3);
+  border-top: 1px solid var(--c-line);
+}
+
+.quiz__summary-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--s-3);
+}
+
+.quiz__summary-row dt { color: var(--c-grey); }
+
+.quiz__summary-row dd { margin: 0; }
+
+.quiz__done-note { color: var(--c-black); }
+
+@media (max-width: 1023px) {
+  .quiz__step,
+  .quiz__contact { grid-template-columns: 1fr; gap: var(--s-4); }
+}
+
+@media (max-width: 767px) {
+  .quiz__options { grid-template-columns: 1fr; }
+  .quiz__actions { display: grid; }
+  .quiz__summary-row { grid-template-columns: 1fr; gap: var(--s-1); }
+}

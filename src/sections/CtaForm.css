@@ -11,6 +11,10 @@
   }
 }
 
+.cta__copy { display: grid; gap: var(--s-3); align-content: start; }
+
+.cta__slots { color: var(--c-accent); }
+
 .cta__title span { display: block; }
 
 .cta__form {
