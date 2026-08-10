@@ -1,0 +1,85 @@
+/* Поле формы: .input и .checkbox определены в design/tokens.css.
+   Здесь — раскладка, подпись, ошибка и инверсия на чёрном. */
+
+.field { display: block; }
+
+.field__label {
+  display: block;
+  color: var(--c-grey);
+}
+
+.field__input { display: block; }
+
+.field__hint {
+  margin-top: var(--s-1);
+  color: var(--c-grey);
+}
+
+.field__error {
+  margin-top: var(--s-1);
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--c-black);
+}
+
+/* --- Чекбокс: галочка --------------------------------------- */
+
+.checkbox {
+  display: inline-grid;
+  place-content: center;
+  flex: none;
+  margin: 0;
+}
+
+.checkbox::after {
+  content: '';
+  width: 10px;
+  height: 5px;
+  border-left: 2px solid var(--c-white);
+  border-bottom: 2px solid var(--c-white);
+  transform: rotate(-45deg) translate(1px, -1px);
+  opacity: 0;
+  transition: opacity var(--t-fast);
+}
+
+.checkbox:checked::after { opacity: 1; }
+
+.checkbox:disabled::after { border-color: var(--c-grey); }
+
+.checkbox-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-2);
+}
+
+.checkbox-row__text { font-size: 13px; line-height: 1.4; }
+
+.checkbox-row__text a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.checkbox-row__text a:hover { color: var(--c-grey); }
+
+/* --- Инверсия на чёрной секции ------------------------------ */
+
+.form-dark .field__input {
+  color: var(--c-white);
+  border-bottom-color: var(--c-grey);
+}
+
+.form-dark .field__input::placeholder { color: var(--c-grey); }
+
+.form-dark .field__input:focus { border-bottom-color: var(--c-white); }
+
+.form-dark .field__error { color: var(--c-white); }
+
+.form-dark .checkbox:checked {
+  background: var(--c-white);
+  border-color: var(--c-white);
+}
+
+.form-dark .checkbox::after {
+  border-left-color: var(--c-black);
+  border-bottom-color: var(--c-black);
+}

@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Шрифты — t-marketing</title>
+
+<link rel="stylesheet" href="./fira-sans-extra-condensed/fira-sans-extra-condensed.css">
+<link rel="stylesheet" href="./onest/onest.css">
+<link rel="stylesheet" href="./inter/inter.css">
+<link rel="stylesheet" href="./oswald/oswald.css">
+
+<style>
+  :root{
+    --black:#000; --white:#fff; --grey:#9E9E9E; --grey-light:#F2F2F2; --accent:#B0E200;
+    --display:"Fira Sans Extra Condensed",sans-serif;
+    --body:"Onest",sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--body);background:var(--white);color:var(--black);
+       -webkit-font-smoothing:antialiased;padding:40px}
+  .wrap{max-width:1360px;margin:0 auto}
+
+  h2.sec{font-family:var(--display);font-weight:900;text-transform:uppercase;
+         font-size:56px;line-height:.95;letter-spacing:-.01em;
+         margin:96px 0 8px;padding-top:24px;border-top:1px solid var(--black)}
+  .sec-note{color:var(--grey);font-size:13px;margin-bottom:40px}
+
+  .row{display:flex;gap:24px;align-items:baseline;padding:16px 0;
+       border-bottom:1px solid #E5E5E5;flex-wrap:wrap}
+  .meta{font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.06em;
+        text-transform:uppercase;color:var(--grey);min-width:170px;flex-shrink:0}
+  .spec{flex:1;min-width:0}
+
+  .d900{font-family:var(--display);font-weight:900;text-transform:uppercase;letter-spacing:-.02em;line-height:.85}
+  .d800{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:-.01em;line-height:.9}
+  .d700{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:-.01em;line-height:.9}
+  .osw {font-family:"Oswald",sans-serif;font-weight:700;text-transform:uppercase;line-height:.95}
+  .on  {font-family:"Onest",sans-serif}
+  .in  {font-family:"Inter",sans-serif}
+
+  .hero{background:var(--black);color:var(--white);padding:48px 40px;margin:40px 0;overflow:hidden}
+  .hero .d900{font-size:clamp(48px,10vw,150px)}
+  .green{background:var(--accent);color:var(--black);padding:48px 40px;margin:40px 0}
+
+  .cmp{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:24px}
+  .cmp>div{border:1px solid #E5E5E5;padding:24px}
+  .cmp h4{font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.06em;
+          text-transform:uppercase;color:var(--grey);margin-bottom:16px;font-weight:500}
+  .cmp p{font-size:16px;line-height:1.55;max-width:34em}
+
+  .glyphs{font-size:40px;line-height:1.6;word-spacing:.2em}
+  .warn{background:var(--grey-light);padding:24px;margin-top:24px;font-size:14px;line-height:1.6}
+  .warn b{font-weight:600}
+
+  .swatches{display:flex;gap:16px;flex-wrap:wrap;margin-top:24px}
+  .sw{width:150px}
+  .sw i{display:block;height:110px;border:1px solid #E5E5E5}
+  .sw span{display:block;font-size:13px;margin-top:8px}
+  .sw code{display:block;font-family:ui-monospace,monospace;font-size:11px;color:var(--grey)}
+
+  @media(max-width:800px){.cmp{grid-template-columns:1fr}.meta{min-width:100%}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="meta" style="min-width:auto">t-marketing · подбор шрифтов · кириллица</p>
+  <h2 class="sec" style="margin-top:24px;border:0;padding-top:0">Шрифты на русском</h2>
+  <p class="sec-note">Fira Sans Extra Condensed (заголовки) + Onest (текст). Альтернативы — Oswald и Inter.</p>
+
+  <div class="hero">
+    <div class="d900">Мы соединяем<br>выдающихся</div>
+  </div>
+
+  <!-- ================= DISPLAY ================= -->
+  <h2 class="sec">Display — Fira Sans Extra Condensed</h2>
+  <p class="sec-note">Замена Druk Condensed. Только CAPS, только заголовки.</p>
+
+  <div class="row"><div class="meta">900 · 120px</div>
+    <div class="spec d900" style="font-size:120px">Продиджис</div></div>
+  <div class="row"><div class="meta">900 · 72px</div>
+    <div class="spec d900" style="font-size:72px">Найти работу мечты</div></div>
+  <div class="row"><div class="meta">800 · 56px</div>
+    <div class="spec d800" style="font-size:56px">Избранные портфолио</div></div>
+  <div class="row"><div class="meta">700 · 40px</div>
+    <div class="spec d700" style="font-size:40px">Наша история</div></div>
+
+  <div class="warn">
+    <b>Проверь широкие знаки.</b> В сверхузком начертании они выбиваются из ритма:
+    <div class="d900 glyphs" style="margin-top:16px">Ж Ш Щ Ф Ю М Ы Ъ Э</div>
+    <div class="d900" style="font-size:56px;margin-top:16px">ЖЁСТКАЯ СЕТКА · ШИРОКИЙ ОХВАТ · ЩЕДРОЕ ПРЕДЛОЖЕНИЕ</div>
+  </div>
+
+  <!-- ================= DISPLAY ALT ================= -->
+  <h2 class="sec">Альтернатива — Oswald</h2>
+  <p class="sec-note">Легче по массе, менее плакатный. Если Fira покажется слишком тяжёлой.</p>
+
+  <div class="row"><div class="meta">700 · 72px</div>
+    <div class="spec osw" style="font-size:72px">Найти работу мечты</div></div>
+  <div class="row"><div class="meta">700 · 40px</div>
+    <div class="spec osw" style="font-size:40px">Избранные портфолио</div></div>
+
+  <!-- ================= BODY ================= -->
+  <h2 class="sec">Текст — Onest</h2>
+  <p class="sec-note">Замена PP Neue Montreal. Спроектирован от кириллицы.</p>
+
+  <div class="row"><div class="meta">500 · 32px · h3</div>
+    <div class="spec on" style="font-size:32px;font-weight:500;line-height:1.15;letter-spacing:-.01em">
+      Платформа для тех, кто делает культуру</div></div>
+
+  <div class="row"><div class="meta">400 · 18px · body-lg</div>
+    <div class="spec on" style="font-size:18px;line-height:1.5;max-width:34em">
+      Мы создаём пространство, где креативные профессионалы показывают работы,
+      рассказывают свои истории и находят заказчиков по всему миру.</div></div>
+
+  <div class="row"><div class="meta">400 · 16px · body</div>
+    <div class="spec on" style="font-size:16px;line-height:1.55;max-width:34em">
+      Съешь же ещё этих мягких французских булок да выпей чаю. Широкая электрификация
+      южных губерний даст мощный толчок подъёму сельского хозяйства. В чащах юга жил-был
+      цитрус? Да, но фальшивый экземпляр!</div></div>
+
+  <div class="row"><div class="meta">400 · 13px · caption</div>
+    <div class="spec on" style="font-size:13px;color:var(--grey)">
+      Москва, Россия · Обновлено 10 августа 2026</div></div>
+
+  <div class="row"><div class="meta">tabular-nums</div>
+    <div class="spec on" style="font-size:20px;font-variant-numeric:tabular-nums">
+      0123456789 · 1 284 проекта · +7 (495) 000-00-00 · 99,9 %</div></div>
+
+  <!-- ================= COMPARE ================= -->
+  <h2 class="sec">Onest против Inter</h2>
+  <p class="sec-note">Один и тот же абзац. Onest мягче и «роднее» на кириллице, Inter — нейтральнее и суше.</p>
+
+  <div class="cmp">
+    <div>
+      <h4>Onest 400 / 16</h4>
+      <p class="on">Мы соединяем брендов с выдающимися креативными профессионалами.
+        Каждое портфолио проходит отбор, каждый бриф — проверку. Никаких случайных
+        исполнителей и бесконечных переписок: только те, кто действительно умеет
+        делать работу.</p>
+    </div>
+    <div>
+      <h4>Inter 400 / 16</h4>
+      <p class="in">Мы соединяем брендов с выдающимися креативными профессионалами.
+        Каждое портфолио проходит отбор, каждый бриф — проверку. Никаких случайных
+        исполнителей и бесконечных переписок: только те, кто действительно умеет
+        делать работу.</p>
+    </div>
+  </div>
+
+  <!-- ================= ACCENT ================= -->
+  <h2 class="sec">На акценте</h2>
+  <p class="sec-note">Чёрный по #B0E200 — контраст 15.6:1. Белым по зелёному не набирать никогда.</p>
+
+  <div class="green">
+    <div class="d900" style="font-size:clamp(40px,7vw,90px)">Стать участником</div>
+    <p class="on" style="font-size:18px;margin-top:24px;max-width:34em">
+      Доступ к закрытым брифам, приоритет в поиске и поддержка на всех этапах сделки.</p>
+  </div>
+
+  <!-- ================= PALETTE ================= -->
+  <h2 class="sec">Палитра</h2>
+  <p class="sec-note">Четыре цвета из дизайн-системы автора плюс белый.</p>
+
+  <div class="swatches">
+    <div class="sw"><i style="background:#000"></i><span>Чёрный</span><code>#000000</code></div>
+    <div class="sw"><i style="background:#fff"></i><span>Белый</span><code>#FFFFFF</code></div>
+    <div class="sw"><i style="background:#9E9E9E"></i><span>Тёмно-серый</span><code>#9E9E9E</code></div>
+    <div class="sw"><i style="background:#F2F2F2"></i><span>Светло-серый</span><code>#F2F2F2</code></div>
+    <div class="sw"><i style="background:#B0E200"></i><span>Акцент</span><code>#B0E200</code></div>
+  </div>
+
+  <p class="sec-note" style="margin-top:96px;padding-top:24px;border-top:1px solid #000">
+    Спецификация — design.mdc · Исходники — design/screens · Промпты — design/prompts
+  </p>
+
+</div>
+</body>
+</html>

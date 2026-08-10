@@ -1,0 +1,38 @@
+.team__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--s-5);
+}
+
+.team__card {
+  display: grid;
+  align-content: start;
+  gap: var(--s-1);
+}
+
+.team__photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  background: var(--c-grey-light);
+}
+
+.team__name {
+  margin-top: var(--s-2);
+  font-weight: 500;
+}
+
+.team__role { font-size: 15px; }
+
+.team__note {
+  margin-top: var(--s-4);
+  color: var(--c-black);
+}
+
+@media (max-width: 1023px) {
+  .team__grid { grid-template-columns: repeat(2, 1fr); gap: var(--s-3); }
+}
+
+@media (max-width: 767px) {
+  .team__grid { grid-template-columns: repeat(2, 1fr); }
+}

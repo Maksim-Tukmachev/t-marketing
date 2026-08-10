@@ -1,0 +1,42 @@
+/* Лента шагов: на десктопе умещается в сетку, на узких экранах скроллится */
+
+.process__track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: var(--s-5);
+  align-items: start;
+}
+
+.process__step {
+  display: grid;
+  align-content: start;
+  gap: var(--s-1);
+  padding-top: var(--s-2);
+  border-top: 1px solid var(--c-black);
+}
+
+.process__n { line-height: .9; }
+
+.process__title { font-weight: 500; }
+
+.process__text { font-size: 15px; }
+
+.process__term {
+  margin-top: var(--s-1);
+  color: var(--c-grey);
+}
+
+/* Ниже 1280 шесть колонок не помещаются — лента едет горизонтально */
+@media (max-width: 1279px) {
+  .process__track {
+    max-width: none;
+    width: max-content;
+    grid-auto-columns: 240px;
+    gap: var(--s-3);
+  }
+}
+
+@media (max-width: 767px) {
+  .process__track { grid-auto-columns: 68vw; }
+}

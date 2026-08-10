@@ -1,0 +1,36 @@
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-5);
+}
+
+/* Прямые углы, рамка 1px, hover — всё выцветает в серый */
+.services__card {
+  display: grid;
+  align-content: start;
+  gap: var(--s-2);
+  padding: var(--s-4);
+  border: var(--border);
+  border-radius: var(--radius);
+  transition: color var(--t-fast), border-color var(--t-fast);
+}
+
+.services__card:hover {
+  color: var(--c-grey);
+  border-color: var(--c-grey);
+}
+
+.services__n { color: var(--c-grey); }
+
+.services__title { font-weight: 500; }
+
+.services__text { font-size: 15px; }
+
+@media (max-width: 1023px) {
+  .services__grid { grid-template-columns: repeat(2, 1fr); gap: var(--s-3); }
+  .services__card { padding: var(--s-3); }
+}
+
+@media (max-width: 767px) {
+  .services__grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,57 @@
+.accordion { border-top: 1px solid var(--c-line); }
+
+.accordion__item { border-bottom: 1px solid var(--c-line); }
+
+.accordion__q {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--s-4);
+  padding-block: var(--s-3);
+  cursor: pointer;
+  list-style: none;
+  transition: color var(--t-fast);
+}
+
+.accordion__q::-webkit-details-marker { display: none; }
+
+.accordion__q:hover { color: var(--c-grey); }
+
+/* Тонкий линейный «плюс», превращается в «минус» */
+.accordion__sign {
+  position: relative;
+  flex: none;
+  width: var(--s-3);
+  height: var(--s-3);
+  margin-top: var(--s-1);
+}
+
+.accordion__sign::before,
+.accordion__sign::after {
+  content: '';
+  position: absolute;
+  inset: 50% 0 auto 0;
+  height: 0;
+  border-top: 1.5px solid currentColor;
+  transition: transform var(--t-fast), opacity var(--t-fast);
+}
+
+.accordion__sign::after { transform: rotate(90deg); }
+
+.accordion__item[open] .accordion__sign::after {
+  transform: rotate(0deg);
+  opacity: 0;
+}
+
+.accordion__a {
+  padding-bottom: var(--s-4);
+  padding-right: var(--s-6);
+  max-width: 34em;
+}
+
+.accordion__a p + p { margin-top: var(--s-2); }
+
+@media (max-width: 767px) {
+  .accordion__q { gap: var(--s-2); }
+  .accordion__a { padding-right: 0; }
+}

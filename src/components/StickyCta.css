@@ -1,0 +1,32 @@
+/* Только мобильная: на десктопе кнопка в шапке всегда на виду */
+
+.sticky-cta { display: none; }
+
+@media (max-width: 767px) {
+  .sticky-cta {
+    display: block;
+    position: fixed;
+    inset: auto 0 0 0;
+    z-index: 9;
+    background: var(--c-black);
+    color: var(--c-white);
+    border-top: 1px solid var(--c-line-dark);
+    padding: var(--s-2);
+    transform: translateY(100%);
+    transition: transform var(--t-fast);
+  }
+
+  .sticky-cta.is-visible { transform: none; }
+
+  .sticky-cta__inner {
+    display: grid;
+    gap: var(--s-1);
+    justify-items: stretch;
+  }
+
+  .sticky-cta__text { color: var(--c-grey); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sticky-cta { transition: none; }
+}

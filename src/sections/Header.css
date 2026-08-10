@@ -1,0 +1,139 @@
+/* Шапка. Не липкая (design.mdc §4), инвертирована — стоит на чёрном первом экране. */
+
+.header {
+  /* Размер логотипа задан спецификацией: design.mdc §5.1 — Fira SEC 900 CAPS ~24px */
+  --logo-size: 24px;
+  background: var(--c-black);
+  color: var(--c-white);
+}
+
+.header__inner {
+  /* Меню лежит внутри <header>, поэтому строку с логотипом и бургером
+     поднимаем над оверлеем — иначе меню нечем закрыть */
+  position: relative;
+  z-index: 20;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--s-4);
+  min-height: var(--header-h);
+}
+
+.header__logo {
+  font-family: var(--f-display);
+  font-weight: 900;
+  font-size: var(--logo-size);
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: -.02em;
+  white-space: nowrap;
+  transition: color var(--t-fast);
+}
+
+.header__logo:hover { color: var(--c-grey); }
+
+.header__nav { justify-self: center; }
+
+.header__list {
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+}
+
+.header__link {
+  font-size: 15px;
+  line-height: 1;
+  transition: color var(--t-fast);
+}
+
+.header__link:hover { color: var(--c-grey); }
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  justify-self: end;
+}
+
+/* --- Бургер ------------------------------------------------ */
+
+.header__burger {
+  display: none;
+  background: none;
+  border: 0;
+  padding: var(--s-1);
+  cursor: pointer;
+}
+
+.header__burger-icon {
+  display: grid;
+  gap: 5px;
+  width: var(--s-3);
+}
+
+.header__burger-icon i {
+  display: block;
+  height: 0;
+  border-top: 1.5px solid currentColor;
+  transition: transform var(--t-fast), opacity var(--t-fast);
+}
+
+.header__burger-icon.is-open i:first-child { transform: translateY(3px) rotate(45deg); }
+.header__burger-icon.is-open i:last-child  { transform: translateY(-4px) rotate(-45deg); }
+
+/* --- Полноэкранное меню ------------------------------------ */
+
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  background: var(--c-black);
+  color: var(--c-white);
+  overflow-y: auto;
+}
+
+.menu[hidden] { display: none; }
+
+.menu__inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--s-6);
+  min-height: 100%;
+  padding-top: calc(var(--header-h) + var(--s-5));
+  padding-bottom: var(--s-6);
+}
+
+.menu__list {
+  display: grid;
+  gap: var(--s-3);
+}
+
+.menu__link {
+  display: block;
+  transition: color var(--t-fast);
+}
+
+.menu__link:hover { color: var(--c-grey); }
+
+.menu__cta { align-self: stretch; }
+
+/* --- Адаптив ------------------------------------------------ */
+
+@media (max-width: 1023px) {
+  /* При открытом меню шапка остаётся поверх оверлея — иначе нечем закрыть */
+  .header.is-menu-open {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 20;
+  }
+
+  .header__inner { grid-template-columns: 1fr auto; }
+  .header__nav,
+  .header__cta { display: none; }
+  .header__burger { display: block; }
+}
+
+@media (min-width: 1024px) {
+  .menu { display: none; }
+}

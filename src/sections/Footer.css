@@ -1,0 +1,56 @@
+.footer {
+  padding-top: var(--s-6);
+  padding-bottom: var(--s-4);
+}
+
+.footer__top {
+  display: grid;
+  gap: var(--s-5);
+}
+
+@media (min-width: 1024px) {
+  .footer__top {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    gap: var(--gutter);
+  }
+}
+
+.footer__logo {
+  display: block;
+  transition: color var(--t-fast);
+}
+
+.footer__logo:hover { color: var(--c-grey); }
+
+.footer__cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-5);
+}
+
+.footer__col { display: grid; align-content: start; gap: var(--s-2); }
+
+.footer__col-title { color: var(--c-grey); }
+
+.footer__list { display: grid; gap: var(--s-1); font-size: 15px; }
+
+.footer__link { transition: color var(--t-fast); }
+
+.footer__link:hover { color: var(--c-grey); }
+
+/* Юридический блок читаемый: .caption по токенам серый, но это
+   обязательная информация, а серый на белом даёт 2.8:1 */
+.footer__bottom {
+  color: var(--c-black);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--s-2);
+  margin-top: var(--s-6);
+  padding-top: var(--s-3);
+  border-top: 1px solid var(--c-line);
+}
+
+@media (max-width: 767px) {
+  .footer__cols { grid-template-columns: 1fr; gap: var(--s-4); }
+}

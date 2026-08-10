@@ -1,0 +1,39 @@
+.cta__inner {
+  display: grid;
+  gap: var(--s-6);
+}
+
+@media (min-width: 1024px) {
+  .cta__inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--gutter);
+    align-items: start;
+  }
+}
+
+.cta__title span { display: block; }
+
+.cta__form {
+  display: grid;
+  gap: var(--s-4);
+}
+
+.cta__agree { display: grid; gap: var(--s-1); }
+
+.cta__reply { color: var(--c-grey); }
+
+/* --- Состояние «отправлено» --------------------------------- */
+
+.cta__done {
+  display: grid;
+  justify-items: start;
+  gap: var(--s-3);
+  padding-top: var(--s-3);
+  border-top: 1px solid var(--c-line-dark);
+}
+
+.cta__done-text { color: var(--c-grey); }
+
+@media (max-width: 767px) {
+  .cta__done { justify-items: stretch; }
+}

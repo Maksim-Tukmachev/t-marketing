@@ -1,0 +1,14 @@
+.faq__inner {
+  display: grid;
+  gap: var(--s-5);
+}
+
+@media (min-width: 1024px) {
+  .faq__inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    gap: var(--gutter);
+    align-items: start;
+  }
+}
+
+.faq__title { align-self: start; }

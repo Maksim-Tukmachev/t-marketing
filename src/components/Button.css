@@ -1,0 +1,46 @@
+/* Кнопки: базовые классы — в design/tokens.css.
+   Здесь только раскладка, инверсия на чёрном и мобильное поведение. */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* --- Инверсия на тёмных секциях ---------------------------- */
+
+.btn--on-dark.btn-pill,
+.btn--on-dark.btn-rect {
+  border-color: var(--c-white);
+  color: var(--c-white);
+}
+
+.btn--on-dark.btn-pill:hover,
+.btn--on-dark.btn-rect:hover {
+  border-color: var(--c-grey);
+  color: var(--c-grey);
+}
+
+.btn--on-dark.btn-solid {
+  background: var(--c-white);
+  color: var(--c-black);
+}
+
+.btn--on-dark.btn-solid:hover { background: var(--c-grey-light); }
+
+.btn--on-dark.btn-solid:disabled {
+  background: var(--c-grey);
+  color: var(--c-black);
+  cursor: not-allowed;
+}
+
+/* --- Мобильные CTA во всю ширину, прямые углы -------------- */
+
+@media (max-width: 767px) {
+  .btn--full-mobile {
+    width: 100%;
+    border-radius: var(--radius);
+  }
+}
